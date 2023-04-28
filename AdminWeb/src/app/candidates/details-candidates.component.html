@@ -1,0 +1,64 @@
+
+<a [routerLink]="['/forms']">Form List</a> / View
+<br>
+<br>
+<h3>Candidate</h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Phone#</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngIf="details">
+            <td>{{details.detailCandidate.idCandidate}}</td>
+            <td>{{details.detailCandidate.nameCandidate}}</td>
+            <td>{{details.detailCandidate.phoneCandidate}}</td>
+            <td>{{details.detailCandidate.emailCandidate}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<br>
+<br>
+<h3>Form</h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Form</th>
+            <th>Status</th>
+            <th>Total Waiting Time</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngIf="details">
+            <td>{{details.detailForms.form}}</td>
+            <td>{{details.detailForms.status}}</td>
+            <td>{{details.detailForms.totalWaitingTime}}</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<br>
+<br>
+<h3>Actions</h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Action Action On</th>
+            <th>Waiting Time</th>
+        </tr>
+    </thead>
+    <tbody *ngIf="details">
+        <tr *ngFor="let action of details.detalAction">
+            <td>{{action.idAction}}</td>
+            <td>{{action.action}} &nbsp;&nbsp;&nbsp;&nbsp; {{action.actionOn}}</td>
+            <td>{{action.waitingTime}}</td>
+        </tr>
+    </tbody>
+</table>

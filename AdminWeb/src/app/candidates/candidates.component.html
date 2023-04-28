@@ -1,0 +1,35 @@
+<button class="btn btn-danger" [disabled]="selected.length == 0" (click)="deletCandidate(0)">Delete</button>
+
+<span style="padding-left: 20px;">Author: Nenad Milutinović</span>
+
+<br>
+<br>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone#</th>
+            <th>Form Name</th>
+            <th>Form Status</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let candidate of candidates">
+            <td><input type="checkbox" [(ngModel)]="candidate.checked" (change)="selectedCandidate(candidate.idCandidate)"> </td>
+            <td>{{candidate.idCandidate}}</td>
+            <td>{{candidate.nameCandidate}}</td>
+            <td>{{candidate.emailId}}</td>
+            <td>{{candidate.phonenumber}}</td>
+            <td>{{candidate.formName}}</td>
+            <td>{{candidate.formAction}}</td>
+            <td>
+                <a [routerLink]="['/details', candidate.idCandidate]">View</a> <span *ngIf="selected.length == 0;"> / </span>
+                <a *ngIf="selected.length == 0;" [routerLink]="" (click)="deletCandidate(candidate.idCandidate)">Delete</a> &nbsp;
+            </td>
+        </tr>
+    </tbody>
+</table>
